@@ -35,7 +35,7 @@ $(document).ready(function() {
         }
         // otherwise, accept the input that the user made
         // I allow the user to change their mind before hitting the = button,
-        // as I have no code to block them from changing from (for example) + to -
+        // as I have no code to block them from changing between operators (for example, from + to -)
         else {
         // set the value of var oper based on the value attribute of the button that was clicked
         oper = $(this).attr("value");

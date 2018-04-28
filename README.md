@@ -1,4 +1,4 @@
-this is my version of the (mostly?) completed jQuery calculator in-class assignment we did on Friday, April 27th, 2018 while in class.
+this is my version of the (mostly?  I think it's complete but maybe you'll find something missing) completed jQuery calculator in-class assignment we did on Friday, April 27th, 2018.
 
 it seems to work properly:
 - it accepts button inputs

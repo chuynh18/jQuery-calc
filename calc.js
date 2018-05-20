@@ -29,7 +29,7 @@ $(document).ready(function() {
         }
         // if a calculation has already been made (that is to say, the = button has been pressed),
         // tell the user to clear the calc first
-        else if (resultComputed === true) {
+        else if (resultComputed) {
             console.log("press clear first");
             $("#result").text(result + ", press clear");
         }
@@ -37,36 +37,36 @@ $(document).ready(function() {
         // I allow the user to change their mind before hitting the = button,
         // as I have no code to block them from changing between operators (for example, from + to -)
         else {
-        // set the value of var oper based on the value attribute of the button that was clicked
-        oper = $(this).attr("value");
-            // this code should be straightforward...
-            // if they hit the button that corresponds to "plus", set prettyOper to "+".
-            // Similar deal for all the other operators, but with the appropriate mathematical operation.
-            if (oper === "plus") {
-                prettyOper = "+";
-            }
-            else if (oper === "minus") {
-                prettyOper = "-";
-            }
-            else if (oper === "times") {
-                prettyOper = "x";
-            }
-            else if (oper === "divide") {
-                prettyOper = "÷";
-            }
-            else if (oper === "power") {
-                prettyOper = "^";
-            }
-        // display the var prettyOper to the user in the area of the HTML with id operator
-        $("#operator").text(prettyOper);
-        console.log("oper: " + oper);      
+            // set the value of var oper based on the value attribute of the button that was clicked
+            oper = $(this).attr("value");
+                // this code should be straightforward...
+                // if they hit the button that corresponds to "plus", set prettyOper to "+".
+                // Similar deal for all the other operators, but with the appropriate mathematical operation.
+                if (oper === "plus") {
+                    prettyOper = "+";
+                }
+                else if (oper === "minus") {
+                    prettyOper = "-";
+                }
+                else if (oper === "times") {
+                    prettyOper = "x";
+                }
+                else if (oper === "divide") {
+                    prettyOper = "÷";
+                }
+                else if (oper === "power") {
+                    prettyOper = "^";
+                }
+            // display the var prettyOper to the user in the area of the HTML with id operator
+            $("#operator").text(prettyOper);
+            console.log("oper: " + oper);      
         } 
     })
 
     // this area listens to clicks on buttons with class number
     $(".number").on("click", function() {
         // if var result is empty...
-        if (!result) {
+        if (!resultComputed) {
             // ... and if var oper is empty, meaning the operator key has not yet been pressed
             if (oper === "") {
                 // make it so the pressed numbers are associated with the first line
@@ -75,7 +75,7 @@ $(document).ready(function() {
                 console.log("1st line number pressed: " + firstNum);
             }
             // otherwise, make it so the numbers go to the 2nd line
-            else if (oper !== "") {
+            else if (oper) {
                 secondNum += $(this).attr("value");
                 $("#second-number").text(secondNum);
                 console.log("2nd line number pressed: " + secondNum);
